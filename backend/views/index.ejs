@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="blogs content">
+      <h2>All Blogs</h2>
+
+      <% if (blogs.length > 0) { %>
+      <!--Beginning of if statement-->
+
+      <% blogs.forEach(blog => { %>
+      <h1 class="title"><%= blog.title %></h1>
+      <p class="snippet"><%= blog.snippet %></p>
+      <% }) %>
+
+      <!--This is end of forEach statment-->
+      <% } else { %>
+      <!--this is the end of if statement and beginning of else statement -->
+      <p>There are no blogs to display</p>
+      <% } %>
+    </div>
+  </body>
+</html>
