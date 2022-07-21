@@ -1,11 +1,20 @@
 const express = require("express");
 
+const morgan = require("morgan");
+
+//  db
+const db = require("./utils/database");
+
 const app = express();
 // listen for requests
 const port = 3000;
 
 // register view engine
 app.set("view engine", "ejs");
+
+// middleware & static files
+app.use(express.static("public"));
+app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
   const blogs = [
